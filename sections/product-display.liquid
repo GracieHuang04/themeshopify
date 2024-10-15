@@ -1,28 +1,36 @@
 <section>
     <div class="container">
         <div class="images">
-            <a href="{{pages['ilme-fx30'].url }}">
-                <img
-                    width = "300"
-                    height = "300"
-                    {% if section.settings.camera1 != blank %}
-                        src="{{ 'section.settings.cemera1'| image_url }}"
-                    {% else %}
-                        src ="{{ 'c1.png' | asset_url}}"
-                    {% endif %}
-                >
-            </a>
-            <a href="{{pages['ilce-6400'].url }}">
-                <img
-                    width = "300"
-                    height = "300"
-                    {% if section.settings.camera2 != blank %}
-                        src="{{ 'section.settings.cemera2'| image_url }}"
-                    {% else %}
-                        src ="{{ 'c2.png' | asset_url}}"
-                    {% endif %}
-                >
-            </a>
+            <div class="product1">
+                <a href="{{pages['ilme-fx30'].url }}">
+                    <img
+                        width = "300"
+                        height = "300"
+                        {% if section.settings.camera1 != blank %}
+                            src="{{ 'section.settings.cemera1'| image_url }}"
+                        {% else %}
+                            src ="{{ 'c1.png' | asset_url}}"
+                        {% endif %}
+                    >
+                </a>
+                <p> Sony Alpha 6400 E-mount camera with APS-C sensor (ILCE-6400L)  </p>
+            </div>
+
+            <div class="product2">
+                <a href="{{pages['ilce-6400'].url }}">
+                    <img
+                        width = "300"
+                        height = "300"
+                        {% if section.settings.camera2 != blank %}
+                            src="{{ 'section.settings.cemera2'| image_url }}"
+                        {% else %}
+                            src ="{{ 'c2.png' | asset_url}}"
+                        {% endif %}
+                    >
+                </a>
+                <p> FX30 Cinema Line Super 35 Camera</p>
+            </div>
+            
         </div>
     </div>
   
@@ -38,6 +46,14 @@
         display:flex;
         justify-content: space-evenly;
         
+    }
+    .product1{
+        text-align: center;
+    }
+    div p {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
     }
 </style>
 {% schema %} {
