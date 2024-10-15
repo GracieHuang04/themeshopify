@@ -35,18 +35,20 @@
         </div>
 
         <div class="nav-right-section">
-            <div>
+            <div class="inner-right">
                 <a href="{{ pages['our-history'].url }}">Our History</a>
             </div>
-            <form action="/search" >
-                <input type="search" name="q" placeholder="Search products..."/>
-                <button type="submit">Search</button>
-            </form>
-            <div>
+            <div class="inner-right">
+                <form action="/search" class="search-box">
+                    <input type="search" name="q" placeholder="Search products..."/>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div class=inner-right>
                 <a href="/cart">
                     <img
-                    width = "100"
-                    height = "100"
+                    width = "50"
+                    height = "50"
                     {% if settings.cart-image != blank %}
                         src = "{{ settings.cart-image | image_url }}"
                     {% else  %}
@@ -70,6 +72,7 @@
 
 .nav-middle-section li{
     list-style:none;
+    padding: 15px;
 }
 
 .nav-middle-section ul{
@@ -80,9 +83,14 @@
 }
 .nav-right-section{
     display: flex;
-    color: inherit;
     padding: 20px;
     align-items: center;
+}
+.inner-right{
+    padding: 15px;
+    color: inherit;
+}
+.search-box{
 }
 </style>
 {%schema%}{
