@@ -1,22 +1,19 @@
 <main>
-    <div class="camera-scroll">
-        <img
-            width = "300"
-            height = "300"
-            loading = "lazy"
-            class = "sticky-image"
-            {% if settings.product1 != blank %}
-                src = " {{ settings.product1 | image_url }}"
-            {% else %}
-                src = "{{ 'c1.png'| asset_url }}"
-            {% endif %}
-        >
-    </div>
+    
     <div class="container">
-        <div class="sticky-image">
-          <img src="{{'c1.png' | asset_url}}" width="500" height="300">
+        <div class="camera-scroll">
+            <img
+                width = "400"
+                height = "400"
+                loading = "lazy"
+                class = "sticky-image"
+                {% if settings.product1 != blank %}
+                    src = " {{ settings.product1 | image_url }}"
+                {% else %}
+                    src = "{{ 'c1.png'| asset_url }}"
+                {% endif %}
+            >
         </div>
-      
         <div class="scroll-reveal">
           <img src="{{ 'photo1.jpg' | asset_url }}" class="left-image" width="500" height="300">
           <img src="{{ 'photo2.jpg' | asset_url}}" class="right-image" width="500" height="300">
@@ -79,7 +76,39 @@
       }
       
 </style>
+<script>
+    // Wait for the DOM to load before running the script
+document.addEventListener('DOMContentLoaded', function() {
 
+    // Select all elements with the class 'scroll-reveal'
+    const reveals = document.querySelectorAll('.scroll-reveal');
+  
+    // Add a scroll event listener to the window
+    window.addEventListener('scroll', function() {
+      
+      // Get the current scroll position
+      const scrollPosition = window.scrollY + window.innerHeight;
+      
+      // Loop through each 'scroll-reveal' section
+      reveals.forEach((reveal) => {
+        
+        // Get the top position of the reveal section
+        const revealTop = reveal.offsetTop;
+        
+        // If the scroll position has reached the reveal section
+        if (scrollPosition >= revealTop) {
+          
+          // Animate the left image by sliding it in from the left
+          reveal.querySelector('.left-image').style.transform = 'translateX(500px)';
+          
+          // Animate the right image by sliding it in from the right
+          reveal.querySelector('.right-image').style.transform = 'translateX(-500px)';
+        }
+      });
+    });
+  
+  });
+</script>
 {% schema %} {
     "name": "product-page-1",
     "settings": [
