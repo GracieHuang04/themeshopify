@@ -9,5 +9,16 @@
  */
 {
   "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header-background-color": "#fffff0"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }
