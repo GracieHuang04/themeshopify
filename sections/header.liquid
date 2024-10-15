@@ -1,14 +1,26 @@
 <header>
     <div class="nav-left-section">
+        {% if {{settings.logo-image}} != blank %} 
         <a href="{{ shop.url }}">
             <img 
                 width = "70"
                 height = "30"
+                loading = "lazy"
                 src = "{{ settings.logo-image | image_url}}"
             >
         </a>
+        {% else %}
+        <a href="{{ shop.url }}">
+            <img
+                width = "70"
+                height = "30"
+                loading = "lazy"
+                src="{{'logo-1.png' | asset_url}}"
+            >
+        </a>
+    {% endif %}
     </div>
-
+    
     <div class = "nav-middle-section">
         <ul>
             {% for link in linklists.main-menu.links %}
@@ -25,7 +37,7 @@
 <style>
 
 </style>
-{%scheme%}{
+{%schema%}{
     "name": "Header",
     "settings": [ {
         "type": "image_picker",
@@ -42,4 +54,4 @@
     ]
 }
 
-{% endscheme %}
+{% endschema %}
