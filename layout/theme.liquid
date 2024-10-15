@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page_title }} - {{ shop.name }}</title>
+    
+        <!-- Shopify Required Assets -->
+        {{ content_for_header }}
+    
+        <!-- Stylesheets -->
+        <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
+    </head>
+    <body>
+    
+        <!-- Header Section -->
+        <header>
+            <h1>{{ shop.name }}</h1>
+            <nav>
+                <!-- Navigation links -->
+                <ul>
+                    {% for link in linklists.main-menu.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- Main Content -->
+        <main>
+            {{ content_for_layout }}
+        </main>
+    
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. All rights reserved.</p>
+        </footer>
+    
+        <!-- Shopify Scripts -->
+        {{ content_for_footer }}
+    
+    </body>
+    </html>
+    
