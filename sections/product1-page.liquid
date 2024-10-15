@@ -12,87 +12,72 @@
             {% endif %}
         >
     </div>
-    <div class="background">
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo1.jpg' | asset_url }}">
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo2.jpg' | asset_url }}">
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo3.jpg' | asset_url }}">
+    <div class="container">
+        <div class="sticky-image">
+          <img src="{{'c1.png' | asset_url}}" width="500" height="300">
+        </div>
+      
+        <div class="scroll-reveal">
+          <img src="{{ 'photo1.jpg' | asset_url }}" class="left-image" width="500" height="300">
+          <img src="{{ 'photo2.jpg' | asset_url}}" class="right-image" width="500" height="300">
+        </div>
+      
+        <div class="scroll-reveal">
+          <img src="{{ 'photo3.jpg' | asset_url }}" class="left-image" width="500" height="300">
+          <img src="{{ 'photo4.jpg' | asset_url }}" class="right-image" width="500" height="300">
+        </div>
 
+        <div class="scroll-reveal">
+            <img src="{{ 'photo5.jpg' | asset_url }}" class="left-image" width="500" height="300">
+            <img src="{{ 'photo6.jpg' | asset_url }}" class="right-image" width="500" height="300">
+        </div>
 
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo4.jpg'| asset_url }}">
-
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo5.jpg'| asset_url }}">
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo6.jpg'| asset_url }}">
-                
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo7.jpg'| asset_url }}">
-                   
-            <img 
-                width= "100%"
-                height = "auto"
-                src="{{ 'photo8.jpg'| asset_url }}">
-    
-    </div>
-   
+        <div class="scroll-reveal">
+            <img src="{{ 'photo7.jpg' | asset_url }}" class="left-image" width="500" height="300">
+            <img src="{{ 'photo8.jpg' | asset_url }}" class="right-image" width="500" height="300">
+        </div>
+      </div>
+      
 </main>
 
 <style>
-    main {
-        margin: 0;
-        height: 200%;
-    }
-    .camera-scroll{
-        height: 1000px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .img {
-        padding : 0;
-        margin: 0;
-    }
-    .sticky-image {
+    .container {
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      
+      .sticky-image {
+        position: -webkit-sticky; /* for Safari */
         position: sticky;
-        top: 50%; /* Stick to 50% from the top of the viewport */
-        left: 50%; /* Stick to 50% from the left of the viewport */
-        transform: translate(-50%, -50%); /* Center the image on both axes */
-        max-width: 300px; /* Set a maximum width for the image */
-        z-index: 999;
-    }
-
-    .background{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        column-gap: 400px;
-        row-gap: 20px;
-        justify-content: center;
-    }   
-
-    .background img{
-        display: block; /* Ensure no inline space around the images */
-        max-width: 300px; /* Set a maximum width for each image */
-    }
-
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+      }
+      
+      .scroll-reveal {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Adjust height to control the scroll effect */
+        overflow: hidden;
+      }
+      
+      .left-image, .right-image {
+        position: absolute;
+        top: 50%;
+        transition: transform 1s ease;
+        transform: translateY(-50%);
+      }
+      
+      .left-image {
+        left: -500px; /* Start off-screen */
+      }
+      
+      .right-image {
+        right: -500px; /* Start off-screen */
+      }
+      
 </style>
 
 {% schema %} {
