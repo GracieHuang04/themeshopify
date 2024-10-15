@@ -1,0 +1,30 @@
+<header>
+    <div>
+        <a href="{{ shop.url }}">
+            <img 
+                width = "70"
+                height = "30"
+                src = "{{ settings.logo-image | image_url}}"
+            >
+        </a>
+    </div>
+</header>
+
+{%scheme%}{
+    "name": "Header",
+    "settings": [ {
+        "type": "image_picker",
+        "id": "logo-image",
+        "label": "Upload logo"
+    },
+    {
+        "type": "color",
+        "id": "header-background-color",
+        "label": "Header Background Color",
+        "default": "#ffffff"
+    }
+        
+    ]
+}
+
+{% endscheme %}
