@@ -12,10 +12,11 @@
         <link href="{{ 'theme.css' | asset_url }}" rel="stylesheet">
     </head>
     <body>
-     
+        {% section 'header' %}
         <!-- Main Content -->
         <main>
             {{ content_for_layout }}
+
         </main>
     
         <!-- Footer Section -->
